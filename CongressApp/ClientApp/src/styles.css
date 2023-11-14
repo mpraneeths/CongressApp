@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size : 13px;
+}
+
+.layout {
+  background: rgb(255,153,51);
+  background: linear-gradient(180deg, rgba(255,153,51,1) 0%, rgba(255,255,255,1) 50%, rgba(19,136,8,1) 100%);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+::-webkit-scrollbar {
+  width: 10px; /* the width of the scrollbar */
+  height: 10px; /* the height of the scrollbar */
+  background-color: rgba(0, 0, 0, 0.2); /* the background color of the scrollbar */
+  border-radius: 6px; /* the border radius of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  width: 8px; /* the width of the scrollbar thumb */
+  height: 8px; /* the height of the scrollbar thumb */
+  background-color: rgba(0, 0, 0, 0.5); /* the background color of the scrollbar thumb */
+  border-radius: 4px; /* the border radius of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-button {
+  display: none; /* hide the default scrollbar buttons */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* the background color of the scrollbar thumb when hovered over */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* the background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent; /* the background color of the scrollbar corner */
+}
+

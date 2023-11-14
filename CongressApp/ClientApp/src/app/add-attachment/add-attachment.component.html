@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Add Items</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Items</mat-label>
+    <mat-select (selectionChange)="itemChanged($event)">
+      <mat-option *ngFor="let item of items" [value]="item">{{item.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <hr style="border: none;">
+  <input (change)="onSubmit($event)" type="file" />
+</div>
+<div mat-dialog-actions style="justify-content: space-between;">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="addAttachment()">Save</button>
+</div>

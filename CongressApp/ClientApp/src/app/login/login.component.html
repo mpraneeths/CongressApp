@@ -1,0 +1,33 @@
+<div class="layout">
+  <mat-card>
+    <div class="lgn-sec">
+      <img src="../../assets/logo-white (1).png" class="login-logo" />
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(user.value, pwd.value)">
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="userName" #user>
+          <mat-error *ngIf="hasError('userName','maxLength') && !hasError('userName','required')">
+            User Name should contain 5 letters
+          </mat-error>
+          <mat-error *ngIf="hasError('userName','required')">
+            UserName required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" #pwd>
+          <mat-error *ngIf="hasError('password','maxLength') && !hasError('password','required')">
+            Password should contain atleast 8 letters
+          </mat-error>
+          <mat-error *ngIf="hasError('password','pattern') && !hasError('password','required')">
+            Password should contain atleast 1 uppercase, 1 lowercase, 1 numeric & 1 character
+          </mat-error>
+          <mat-error *ngIf="hasError('password','required')">
+            Password is Required
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <button mat-raised-button (click)="onSubmit(user.value, pwd.value)">Login</button>
+    </div>
+  </mat-card>
+</div>

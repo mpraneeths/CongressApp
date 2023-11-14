@@ -1,0 +1,20 @@
+mat-card{
+    width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    background-color: lightgrey;
+}
+.lgn-sec{
+    margin: auto;
+    width: 350px;
+}
+mat-form-field{
+    width : 100%;
+}
+.login-logo {
+  width: 300px;
+  height: auto;
+}

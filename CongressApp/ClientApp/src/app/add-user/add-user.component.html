@@ -1,0 +1,75 @@
+<h1 mat-dialog-title>Add Items</h1>
+<div mat-dialog-content>
+    <form [formGroup]="userForm">
+        <mat-form-field class="example-full-width">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput formControlName="userName">
+            <mat-error *ngIf="hasError('userName','maxLength') && !hasError('userName','required')">
+                User Name should contain atleast 4 letters
+            </mat-error>
+            <mat-error *ngIf="hasError('userName','required')">
+                UserName required
+            </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Surname</mat-label>
+            <input type="text" matInput formControlName="surName">
+            <mat-error *ngIf="hasError('surName','required')">
+                Surname required
+            </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="name">
+            <mat-error *ngIf="hasError('name','maxLength') && !hasError('name','required')">
+                Name should contain atleast 4 letters
+            </mat-error>
+            <mat-error *ngIf="hasError('name','required')">
+                required
+            </mat-error>
+        </mat-form-field><br>
+        <mat-form-field>
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+              <mat-option value="admin">Admin</mat-option>
+              <mat-option value="analyst">Analyst</mat-option>
+              <mat-option value="social media worrior">Social Media Worrior</mat-option>
+              <mat-option value="spokesman">Spokesman</mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('surName','required')">
+                Role required
+            </mat-error>
+          </mat-form-field><br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Membership Id</mat-label>
+            <input type="text" matInput formControlName="memberId">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Email Id</mat-label>
+            <input type="text" matInput formControlName="emaild">
+            <mat-error *ngIf="hasError('surName','email')">
+                Please Enter valid Email
+            </mat-error>
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Mobile</mat-label>
+            <input type="number" matInput formControlName="mobile">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Twitter Id</mat-label>
+            <input type="text" matInput formControlName="twitter">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Facebook</mat-label>
+            <input type="text" matInput formControlName="facebook">
+        </mat-form-field>
+    </form>
+    <hr style="border: none;">
+    <span *ngIf="isUserExists" style="font-size: 10px; color: red;">
+        User Exists please try another UserName
+    </span> 
+</div>
+<div mat-dialog-actions style="justify-content: space-between;">
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button cdkFocusInitial (click)="createUser()">Save</button>
+</div>

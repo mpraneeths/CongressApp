@@ -1,0 +1,25 @@
+<div class="home-layout">
+    <div class="topnavbar" #top>
+        <button class="menubtn" routerLink="/home">
+          <img src="../../assets/logo-white (1).png" class="menu">
+        </button>
+        <div style="float: right;">
+          <button mat-raised-button class="nav-buttons"(click)="goBack()">back</button>
+      <button mat-raised-button class="nav-buttons logout" (click)="logout()">Logout</button>
+        </div>
+      </div>
+      <div class="appWrapper">
+        <table class="mat-table">
+            <thead>
+                <tr class="mat-header-row">
+                    <td *ngFor="let col of displayedColumns">{{col}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of dataSource" class="mat-row" (click)="openUserReleatedAttachments(row)">
+                    <td *ngFor="let col of tempCols">{{row[col]}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+</div>

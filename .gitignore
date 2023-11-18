@@ -7,3 +7,4 @@
 /CongressApp/ErrorLogs
 /CongressApp/Properties/PublishProfiles
 /CongressApp/bin/Debug/netcoreapp3.1
+/CongressApp/bin/Release/netcoreapp3.1

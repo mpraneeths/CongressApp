@@ -41,6 +41,13 @@ export class DataService {
     let options = { headers: httpHeaders };
     return this.http.post('/service/createitems', items, options);
   }
+  public addDataAsLink(items: any) {
+    let httpHeaders = new HttpHeaders().set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+    items.CreatedBy = this.getUser();
+    items.CreatedDate = new Date();
+    let options = { headers: httpHeaders };
+    return this.http.post('/service/addDataAsLink', items, options);
+  }
   public getitems(selectedDate: Date) {
     let httpHeaders = new HttpHeaders().set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
     return this.http.get('/service/getitems', { params: { 'date': selectedDate.toDateString() }, headers: httpHeaders });
@@ -65,9 +72,8 @@ export class DataService {
     return this.http.get('/service/usersget', { headers: httpHeaders });
   }
   public getUserattachements(selectedDate: Date, itemName: any) {
-    const user = this.getUser();
     let httpHeaders = new HttpHeaders().set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
-    return this.http.get('/service/getUserattachements', { params: { 'selectedDate': selectedDate.toDateString(), 'user': user || '', 'itemName': itemName }, headers: httpHeaders });
+    return this.http.get('/service/getUserattachements', { params: { 'selectedDate': selectedDate.toDateString(), 'itemName': itemName }, headers: httpHeaders });
   }
   public getAllUserAttachments(user: any) {
     let httpHeaders = new HttpHeaders().set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));

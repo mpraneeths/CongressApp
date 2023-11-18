@@ -13,6 +13,7 @@ namespace CongressApp.Models
         public string TimeSelected { get; set; }
         public string SelectedItem { get; set; }
         public string ColumnName { get; set; }
+        public bool IsLink { get; set; }
         public string Filename { get; set; }
         public string FilePath { get; set; }
         public bool IsDeleted { get; set; }

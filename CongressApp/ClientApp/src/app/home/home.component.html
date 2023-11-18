@@ -56,22 +56,22 @@
           <tr *ngFor="let row of dataSource; let i=index">
             <td>{{row.timeline}}</td>
             <td><span><a *ngFor="let cData of row.smedia" style="cursor: pointer;" [title]="cData.fileName"
-                  (click)="download(cData.filePath, cData.fileName)">
+                  (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
                   (click)="openAttachmentPopup(i, 'smedia')">+</button></span></td>
             <td><span><a *ngFor="let cData of row.studio" style="cursor: pointer;" [title]="cData.fileName"
-                  (click)="download(cData.filePath, cData.fileName)">
+                  (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
                   (click)="openAttachmentPopup(i, 'studio')">+</button></span></td>
             <td><span><a *ngFor="let cData of row.press" style="cursor: pointer;" [title]="cData.fileName"
-                  (click)="download(cData.filePath, cData.fileName)">
+                  (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
                   (click)="openAttachmentPopup(i, 'press')">+</button></span></td>
             <td><span><a *ngFor="let cData of row.debate" style="cursor: pointer;" [title]="cData.fileName"
-                  (click)="download(cData.filePath, cData.fileName)">
+                  (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
                   (click)="openAttachmentPopup(i, 'debate')">+</button></span></td>

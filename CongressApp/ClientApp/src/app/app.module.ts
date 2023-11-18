@@ -13,7 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponent } from './home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule, MatPseudoCheckboxModule, MatRippleModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddUserComponent } from './add-user/add-user.component';
@@ -28,6 +28,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { UserDataComponent } from './user-data/user-data.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
     NgIf,
     MatButtonModule,

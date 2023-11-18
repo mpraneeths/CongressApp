@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
         this.attachmentData = data;
         for (let attdata of this.attachmentData) {
           var rowItem = this.dataSource.find(row => row.timeline == attdata.timeSelected);
-          rowItem[attdata.columnName].push({ fileName: attdata.filename, filePath: attdata.filePath });
+          rowItem[attdata.columnName].push({ fileName: attdata.isLink? attdata.filePath : attdata.filename, filePath: attdata.filePath, isLink: attdata.isLink });
         }
         this.hideSpinner();
       })
@@ -109,7 +109,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  download(filePath: any, fileName: any) {
+  download(filePath: any, fileName: any, isLink: boolean) {
+    if(isLink){
+      this.redirectToURL(filePath);
+      return;
+    }
     this.service.downloadFile(filePath).subscribe((data:any)=>{
       if(data){
         const url = window.URL.createObjectURL(data);
@@ -150,5 +154,8 @@ export class HomeComponent implements OnInit {
   }
   redirectToUsers(){
     this.router.navigate(['/userlist']);
+  }
+  redirectToURL(url:string){
+    window.open(url, '_blank');
   }
 }

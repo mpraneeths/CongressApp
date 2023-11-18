@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add Items</h1>
+<h1 mat-dialog-title>Add Attachment or Link</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Items</mat-label>
@@ -6,8 +6,14 @@
       <mat-option *ngFor="let item of items" [value]="item">{{item.name}}</mat-option>
     </mat-select>
   </mat-form-field>
+  <br>
+  <mat-checkbox [checked]="isLink" (change)="itemTypeChanged($event)">Is Link or URL</mat-checkbox>
   <hr style="border: none;">
-  <input (change)="onSubmit($event)" type="file" />
+  <input *ngIf="!isLink" (change)="onSubmit($event)" type="file" />
+  <mat-form-field *ngIf="isLink">
+    <mat-label>Link</mat-label>
+    <input matInput [formControl]="link">
+  </mat-form-field>
 </div>
 <div mat-dialog-actions style="justify-content: space-between;">
   <button mat-button (click)="cancel()">Cancel</button>

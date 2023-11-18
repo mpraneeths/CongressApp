@@ -147,6 +147,7 @@ namespace CongressApp.Controllers
                 SelectedDateTime = attachmentData.SelectedDateTime,
                 SelectedItem = attachmentData.SelectedItem,
                 Filename = attachmentData.Filename,
+                IsLink = false,
                 FilePath = Path.Combine(workingDirectoryPath, "SavedFiles", DateTime.Now.ToString("yyyyMMddHHmmss") + fileExt),
                 CreatedBy = attachmentData.CreatedBy,
                 CreatedDate = attachmentData.CreatedDate,
@@ -157,6 +158,19 @@ namespace CongressApp.Controllers
             collection.InsertOne(attachment);
             return true;
         }
+
+        [Authorize]
+        [HttpPost("addDataAsLink")]
+        public bool StoreLinkData([FromBody] AttachmentData input)
+        {
+            input.IsDeleted = false;
+            input.IsLink = true;
+            var database = DatabaseProvider();
+            var collection = database.GetCollection<AttachmentData>("AttachmentData");
+            collection.InsertOne(input);
+            return true;
+        }
+
         [Authorize]
         [HttpGet("downloadFile")]
         public IActionResult DownloadFile([FromQuery] string filePath)
@@ -226,15 +240,11 @@ namespace CongressApp.Controllers
         }
         [Authorize]
         [HttpGet("getUserattachements")]
-        public List<AttachmentData> getUserDocs([FromQuery] string selectedDate, [FromQuery] string user, [FromQuery] string itemName)
+        public List<AttachmentData> getUserDocs([FromQuery] string selectedDate, [FromQuery] string itemName)
         {
-            if (string.IsNullOrEmpty(user))
-            {
-                throw new Exception("User cannot be empty");
-            }
             var database = DatabaseProvider();
             var collection = database.GetCollection<AttachmentData>("AttachmentData");
-            var filterQuery = Builders<AttachmentData>.Filter.Eq("SelectedDateTime", selectedDate) & Builders<AttachmentData>.Filter.Eq("CreatedBy", user) & Builders<AttachmentData>.Filter.Eq("SelectedItem", itemName) & Builders<AttachmentData>.Filter.Eq("IsDeleted", false);
+            var filterQuery = Builders<AttachmentData>.Filter.Eq("SelectedDateTime", selectedDate) & Builders<AttachmentData>.Filter.Eq("SelectedItem", itemName) & Builders<AttachmentData>.Filter.Eq("IsDeleted", false);
             var filters = collection.Find(filterQuery).ToList().OrderBy(x => x.CreatedDate).ToList();
             return filters;
         }

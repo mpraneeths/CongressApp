@@ -3,10 +3,12 @@
   <table class="user-data">
     <tbody>
       <tr *ngFor="let dataItem of userData">
-        <td>{{dataItem.filename}}</td>
-        <td><button class="downloadbtn" mat-raised-button
+        <td>{{dataItem.filename ? dataItem.filename: dataItem.filePath}}</td>
+        <td *ngIf="!dataItem.isLink"><button class="downloadbtn" mat-raised-button
             (click)="download(dataItem.filePath, dataItem.filename)">Download</button></td>
-        <td><button class="downloadbtn" mat-raised-button (click)="delete(dataItem._id)">Delete</button></td>
+        <td *ngIf="!dataItem.isLink"><button class="downloadbtn" mat-raised-button
+            (click)="delete(dataItem._id)">Delete</button></td>
+        <td colspan="2" *ngIf="dataItem.isLink"><a href="{{dataItem.filePath}}" target="_blank">{{dataItem.filePath}}</a></td>
       </tr>
     </tbody>
   </table>

@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
   showSpinner: boolean = false;
   isAdmin : boolean = false;
   isSiteAdmin : boolean = false;
-  displayedColumns: string[] = ['timeline', 'smedia', 'press', 'debate', 'studio'];
-  tableColumns: string[] = ['smedia', 'press', 'debate', 'studio'];
+  displayedColumns: string[] = ['timeline', 'facebook', 'twitter', 'instagram', 'youtube', 'newsclips'];
+  tableColumns: string[] = ['facebook', 'twitter', 'instagram', 'youtube', 'newsclips'];
   unfilteredDataSource: any[] = [];
   constructor(private router: Router, private service: DataService, private dialog: MatDialog) { }
   choosenDate: FormControl = new FormControl('');
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
   createTimeline() {
     var elementData = [];
     for (let i = 0; i < 24; i++) {
-      var timeLine = { timeline: `${i} hrs`, smedia: [], press: [], debate: [], studio: [] };
+      var timeLine = { timeline: `${i} hrs`, facebook: [], twitter: [], instagram: [], youtube: [], newsclips:[] };
       elementData.push(timeLine);
     }
     return elementData;
@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
   }
   openItems() {
     if (this.selectedDate) {
-      const dialogRef = this.dialog.open(AddItemsComponent, { data: this.selectedDate });
+      const dialogRef = this.dialog.open(AddItemsComponent, { data: {date: this.selectedDate, items: this.items} });
       dialogRef.afterClosed().subscribe(result => {
         this.getEntireData(this.choosenDate);
       })

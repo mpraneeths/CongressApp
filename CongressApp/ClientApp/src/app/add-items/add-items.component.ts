@@ -17,8 +17,16 @@ export class AddItemsComponent implements OnInit {
   }
   
   addItem(){
+    if(this.data.items.createdItems.find((x:any) =>x.name.toLocaleLowerCase() === this.ItemNameControl.value.toLocaleLowerCase())){
+      Swal.fire(
+        'Error!',
+        this.ItemNameControl.value + ' already exists',
+        'error'
+      );
+      return;
+    }
     var dataToSend ={
-      ItemDate : this.data.toDateString(),
+      ItemDate : this.data.date.toDateString(),
       CreatedItems : [{Index : 1, Name: this.ItemNameControl.value}]
     }
     this.service.createitems(dataToSend).subscribe((data: any)=>{

@@ -41,15 +41,11 @@
         <thead>
           <tr>
             <th>Timeline</th>
-            <th colspan="2">Social Media Warriors</th>
-            <th colspan="2">Media</th>
-          </tr>
-          <tr>
-            <th></th>
-            <th>Social Media</th>
-            <th>Congress Studio</th>
-            <th>Press Conference</th>
-            <th>Debate</th>
+            <th>Facebook</th>
+            <th>Twitter</th>
+            <th>Instagram</th>
+            <th>YouTube</th>
+            <th>News clips</th>
           </tr>
         </thead>
         <tbody>
@@ -59,22 +55,27 @@
                   (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
-                  (click)="openAttachmentPopup(i, 'smedia')">+</button></span></td>
+                  (click)="openAttachmentPopup(i, 'facebook')">+</button></span></td>
             <td><span><a *ngFor="let cData of row.studio" style="cursor: pointer;" [title]="cData.fileName"
                   (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
-                  (click)="openAttachmentPopup(i, 'studio')">+</button></span></td>
+                  (click)="openAttachmentPopup(i, 'twitter')">+</button></span></td>
             <td><span><a *ngFor="let cData of row.press" style="cursor: pointer;" [title]="cData.fileName"
                   (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
-                  (click)="openAttachmentPopup(i, 'press')">+</button></span></td>
+                  (click)="openAttachmentPopup(i, 'instagram')">+</button></span></td>
             <td><span><a *ngFor="let cData of row.debate" style="cursor: pointer;" [title]="cData.fileName"
                   (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
-                  (click)="openAttachmentPopup(i, 'debate')">+</button></span></td>
+                  (click)="openAttachmentPopup(i, 'youtube')">+</button></span></td>
+            <td><span><a *ngFor="let cData of row.debate" style="cursor: pointer;" [title]="cData.fileName"
+                    (click)="download(cData.filePath, cData.fileName, cData.isLink)">
+                    <div class="attachSpan"></div>
+                  </a></span><span class="attachBtn"><button matRipple class="atchbtn"
+                    (click)="openAttachmentPopup(i, 'newsclips')">+</button></span></td>
 
           </tr>
         </tbody>

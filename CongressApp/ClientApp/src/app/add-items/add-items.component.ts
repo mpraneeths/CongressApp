@@ -17,7 +17,7 @@ export class AddItemsComponent implements OnInit {
   }
   
   addItem(){
-    if(this.data.items.createdItems.find((x:any) =>x.name.toLocaleLowerCase() === this.ItemNameControl.value.toLocaleLowerCase())){
+    if(this.data.items?.createdItems?.find((x:any) =>x.name.toLocaleLowerCase() === this.ItemNameControl.value.toLocaleLowerCase())){
       Swal.fire(
         'Error!',
         this.ItemNameControl.value + ' already exists',

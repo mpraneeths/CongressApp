@@ -51,27 +51,27 @@
         <tbody>
           <tr *ngFor="let row of dataSource; let i=index">
             <td>{{row.timeline}}</td>
-            <td><span><a *ngFor="let cData of row.smedia" style="cursor: pointer;" [title]="cData.fileName"
+            <td><span><a *ngFor="let cData of row.facebook" style="cursor: pointer;" [title]="cData.fileName"
                   (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
                   (click)="openAttachmentPopup(i, 'facebook')">+</button></span></td>
-            <td><span><a *ngFor="let cData of row.studio" style="cursor: pointer;" [title]="cData.fileName"
+            <td><span><a *ngFor="let cData of row.twitter" style="cursor: pointer;" [title]="cData.fileName"
                   (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
                   (click)="openAttachmentPopup(i, 'twitter')">+</button></span></td>
-            <td><span><a *ngFor="let cData of row.press" style="cursor: pointer;" [title]="cData.fileName"
+            <td><span><a *ngFor="let cData of row.instagram" style="cursor: pointer;" [title]="cData.fileName"
                   (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
                   (click)="openAttachmentPopup(i, 'instagram')">+</button></span></td>
-            <td><span><a *ngFor="let cData of row.debate" style="cursor: pointer;" [title]="cData.fileName"
+            <td><span><a *ngFor="let cData of row.youtube" style="cursor: pointer;" [title]="cData.fileName"
                   (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                   <div class="attachSpan"></div>
                 </a></span><span class="attachBtn"><button matRipple class="atchbtn"
                   (click)="openAttachmentPopup(i, 'youtube')">+</button></span></td>
-            <td><span><a *ngFor="let cData of row.debate" style="cursor: pointer;" [title]="cData.fileName"
+            <td><span><a *ngFor="let cData of row.newsclips" style="cursor: pointer;" [title]="cData.fileName"
                     (click)="download(cData.filePath, cData.fileName, cData.isLink)">
                     <div class="attachSpan"></div>
                   </a></span><span class="attachBtn"><button matRipple class="atchbtn"
